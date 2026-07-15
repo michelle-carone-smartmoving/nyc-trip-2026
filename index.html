@@ -125,6 +125,14 @@
   .slot .sub { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
   .slot.workshop { background: linear-gradient(90deg, #fff7ee, transparent); border-radius: 8px; }
   .slot.workshop .time { color: #c25417; }
+  .classlist { list-style: none; margin-top: 8px; display: grid; gap: 5px; }
+  .classlist li {
+    font-size: 13.5px; background: #fff; border: 1px solid #f0e2cf; border-radius: 8px;
+    padding: 5px 10px; display: flex; gap: 8px; align-items: baseline;
+  }
+  .classlist .ct { font-weight: 800; color: #c25417; font-size: 12px; flex: none; width: 52px; }
+  .classlist .ci { color: var(--muted); }
+  .classlist .room { font-size: 11px; font-weight: 700; color: #1f6ea8; background: #e9f3fb; border-radius: 999px; padding: 1px 8px; margin-left: auto; white-space: nowrap; }
   @media (max-width: 480px) {
     .slot { flex-direction: column; gap: 2px; }
     .slot .time { width: auto; }
@@ -186,7 +194,7 @@
   <div class="facts">
     <div class="fact"><div class="emoji">🏨</div><div><div class="label">Home base</div><div class="value">NY Marriott Marquis<br>1535 Broadway (Times Sq)</div></div></div>
     <div class="fact"><div class="emoji">🥵</div><div><div class="label">Weather</div><div class="value">Mid-to-upper 80s °F,<br>humid · pack for heat</div></div></div>
-    <div class="fact"><div class="emoji">💃</div><div><div class="label">Salsa workshops</div><div class="value">Fri – Sun · 11am – 5pm<br>at the hotel</div></div></div>
+    <div class="fact"><div class="emoji">💃</div><div><div class="label">Salsa workshops</div><div class="value">Fri – Sun · from 10am<br>at the hotel (EM Salsa)</div></div></div>
   </div>
 
   <section>
@@ -217,13 +225,22 @@
       <div class="day-head">
         <div class="datebox"><div class="dow">Fri</div><div class="num">7/31</div></div>
         <h3>Grand Central day</h3>
-        <span class="tag salsa">💃 Salsa 11–5</span>
+        <span class="tag salsa">💃 Classes 10 – 6:30</span>
         <span class="tag temp">86° / 74°</span>
       </div>
       <div class="day-body">
-        <div class="slot"><div class="time">~9:00 am</div><div class="what"><b>Grand Central Terminal.</b> Flat 15-min walk east on 42nd St (or one stop on the 7 / S shuttle).<div class="sub">Main concourse ceiling, whispering gallery, breakfast at Grand Central Market. Fully air-conditioned. Back by 10:45.</div></div></div>
-        <div class="slot workshop"><div class="time">11 – 5</div><div class="what"><b>Salsa workshops at the hotel.</b><div class="sub">Lunch break: Los Tacos No.1 (43rd St, 2-min walk, fast + amazing) or Margon (46th St, classic Cuban lunch counter, on theme).</div></div></div>
-        <div class="slot"><div class="time">Evening</div><div class="what"><b>Dinner on Restaurant Row</b> (46th St btwn 8th &amp; 9th) or 9th Ave in Hell's Kitchen.<div class="sub">Then Times Square at night, when it's actually worth seeing, and it's right outside the hotel.</div></div></div>
+        <div class="slot"><div class="time">~8:15 am</div><div class="what"><b>Grand Central Terminal, early.</b> Flat 15-min walk east on 42nd St (or one stop on the 7 / S shuttle).<div class="sub">Main concourse ceiling, whispering gallery, breakfast at Grand Central Market. Fully air-conditioned. Back by 9:45 for the first class.</div></div></div>
+        <div class="slot workshop"><div class="time">10 – 6:30</div><div class="what"><b>Must-take classes 🔴</b>
+          <ul class="classlist">
+            <li><span class="ct">10:00</span>Isolations <span class="ci">· Cristian Vergari</span></li>
+            <li><span class="ct">11:00</span>Tania's Fusion <span class="ci">· Tania Cannarsa</span></li>
+            <li><span class="ct">12:00</span>Lady Styling <span class="ci">· Nathalia Raigosa</span><span class="room">Master Class Rm</span></li>
+            <li><span class="ct">1:00</span>Spins EM Technique <span class="ci">· Adolfo &amp; Nathalia</span></li>
+            <li><span class="ct">2:00</span>Mambo Fusion <span class="ci">· Amneris Martinez</span></li>
+            <li><span class="ct">5:00</span>Tech rehearsal <span class="ci">· until 6:30</span></li>
+          </ul>
+          <div class="sub">3–5pm is open: rest, or grab a real lunch. Quick fuel between classes: Los Tacos No.1 (43rd St, 2-min walk) or Margon (46th St, Cuban lunch counter, on theme).</div></div></div>
+        <div class="slot"><div class="time">~7:00 pm</div><div class="what"><b>Post-rehearsal dinner on Restaurant Row</b> (46th St btwn 8th &amp; 9th) or 9th Ave in Hell's Kitchen.<div class="sub">Then Times Square at night, when it's actually worth seeing, and it's right outside the hotel.</div></div></div>
       </div>
     </div>
 
@@ -231,13 +248,21 @@
       <div class="day-head">
         <div class="datebox"><div class="dow">Sat</div><div class="num">8/1</div></div>
         <h3>Central Park + Brooklyn Bridge</h3>
-        <span class="tag salsa">💃 Salsa 11–5</span>
+        <span class="tag salsa">💃 Classes 11 – 5:50</span>
         <span class="tag temp">87° / 74°</span>
       </div>
       <div class="day-body">
         <div class="slot"><div class="time">7:30 am</div><div class="what"><b>Central Park, early.</b> Walk up Broadway to Columbus Circle (15 min).<div class="sub">Greatest-hits loop: the Mall → Bethesda Terrace &amp; Fountain → Bow Bridge (~90 min). Breakfast near Columbus Circle, back by 10:45.</div></div></div>
-        <div class="slot workshop"><div class="time">11 – 5</div><div class="what"><b>Salsa workshops at the hotel.</b></div></div>
-        <div class="slot"><div class="time">~7:15 pm</div><div class="what"><b>Brooklyn Bridge at sunset.</b> Subway downtown, start from the Manhattan side ~7:30.<div class="sub">Walk toward Brooklyn so the skyline is behind you and Dumbo is the reward. Sunset ≈ 8:10 pm.</div></div></div>
+        <div class="slot workshop"><div class="time">11 – 5:50</div><div class="what"><b>Must-take classes 🔴</b>
+          <ul class="classlist">
+            <li><span class="ct">11:00</span>Isolations w/ Percussions <span class="ci">· Ivan, Tania, Amneris</span></li>
+            <li><span class="ct">12:00</span>Salsa Con Sabor <span class="ci">· Natasha Karp</span><span class="room">Master Class Rm</span></li>
+            <li><span class="ct">2:00</span>Spins Iroko Technique <span class="ci">· Ernesto &amp; Denisse</span></li>
+            <li><span class="ct">3:00</span>Int-Adv Footwork <span class="ci">· Diego &amp; Yaritza</span></li>
+            <li><span class="ct">5:00</span>Jam Session <span class="ci">· Adolfo, Diego, Brandon &amp; Benny</span></li>
+          </ul>
+          <div class="sub">1–2pm is open for lunch; 4–5pm is open to rest up before the jam + bridge walk.</div></div></div>
+        <div class="slot"><div class="time">~6:30 pm</div><div class="what"><b>Brooklyn Bridge at sunset.</b> Head down right after the jam; subway downtown, on the bridge from the Manhattan side ~7:15.<div class="sub">Walk toward Brooklyn so the skyline is behind you and Dumbo is the reward. Sunset ≈ 8:10 pm.</div></div></div>
         <div class="slot"><div class="time">Dinner</div><div class="what"><b>Dumbo:</b> Juliana's or Grimaldi's for pizza (expect a wait) or Time Out Market food hall with skyline views.<div class="sub">A/C train from High St runs you back to a block from the hotel.</div></div></div>
       </div>
     </div>
@@ -246,12 +271,20 @@
       <div class="day-head">
         <div class="datebox"><div class="dow">Sun</div><div class="num">8/2</div></div>
         <h3>Leslie's send-off</h3>
-        <span class="tag salsa">💃 Salsa 11–5</span>
+        <span class="tag salsa">💃 Classes 10 – 5:50</span>
         <span class="tag temp">Mid 80s</span>
       </div>
       <div class="day-body">
-        <div class="slot"><div class="time">Morning</div><div class="what"><b>Send-off brunch for Leslie</b> in Hell's Kitchen (Westville, 9th Ave) or Sarabeth's at Central Park South.<div class="sub">All three must-haves: done ✓. If her flight allows, she can catch the first workshop hour before heading out.</div></div></div>
-        <div class="slot workshop"><div class="time">11 – 5</div><div class="what"><b>Salsa workshops</b> for the rest of the crew. Safe travels, Leslie! 👋</div></div>
+        <div class="slot"><div class="time">~8:15 am</div><div class="what"><b>Early send-off breakfast for Leslie</b> in Hell's Kitchen (9th Ave) — classes start at 10 today.<div class="sub">All three must-haves: done ✓. If her flight allows, she can catch Afro at 10 before heading out. Safe travels, Leslie! 👋</div></div></div>
+        <div class="slot workshop"><div class="time">10 – 5:50</div><div class="what"><b>Must-take classes 🔴</b>
+          <ul class="classlist">
+            <li><span class="ct">10:00</span>Afro <span class="ci">· Ivan Valdespino</span></li>
+            <li><span class="ct">11:00</span>Partnerwork <span class="ci">· Johan &amp; Alyssa</span><span class="room">Master Class Rm</span></li>
+            <li><span class="ct">1:00</span>Body Movement <span class="ci">· Chiara Tofani</span></li>
+            <li><span class="ct">3:00</span>Footwork with Cuban Influence <span class="ci">· Jorge Salas</span></li>
+            <li><span class="ct">5:00</span>Closing Jam Session <span class="ci">· TG &amp; EM</span></li>
+          </ul>
+          <div class="sub">12–1pm and 2–3pm are open for lunch and rest; 4–5pm free before the closing jam.</div></div></div>
         <div class="slot"><div class="time">Evening</div><div class="what"><b>Low-key night:</b> The View, the revolving lounge on the hotel's 48th floor, zero effort required.<div class="sub">Or gelato + a wander through Rockefeller Center and Bryant Park after dark.</div></div></div>
       </div>
     </div>
@@ -324,7 +357,7 @@
     <h2><span class="dot"></span>Beating the heat 🥵</h2>
     <div class="heat">
       <ul>
-        <li><b>Outdoors before 10am or after 6pm.</b> The workshops conveniently cover the hottest hours (11–5) on Fri–Sun.</li>
+        <li><b>Outdoors before 10am or after 6pm.</b> The classes conveniently cover the hottest hours on Fri–Sun.</li>
         <li><b>Hydrate constantly.</b> Whole Foods (Columbus Circle, Bryant Park) and Duane Reade are everywhere for water and sunscreen.</li>
         <li><b>Midday A/C escapes:</b> Bryant Park's library, museums, Grand Central, food halls.</li>
         <li><b>Pop-up storms happen</b> on summer afternoons. A packable umbrella is worth it; replanning around rain is not.</li>
