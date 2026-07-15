@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYC Trip · July 30 – Aug 4, 2026</title>
+<style>
+  :root {
+    --navy: #0e1b33;
+    --navy-soft: #1c2d4f;
+    --sunset: #ff6b4a;
+    --gold: #ffb347;
+    --sky: #4aa3df;
+    --cream: #fdf8f2;
+    --ink: #26303f;
+    --muted: #6b7686;
+    --card: #ffffff;
+    --line: #e8e0d5;
+    --pill-bg: #fff3e6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  /* HERO */
+  header {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-soft) 55%, #43335c 85%, #7a3b52 100%);
+    color: #fff;
+    padding: 56px 0 84px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .skyline {
+    position: absolute; bottom: -2px; left: 0; right: 0;
+    width: 100%; height: 70px; opacity: 0.9;
+  }
+  header .kicker {
+    text-transform: uppercase; letter-spacing: 3px; font-size: 12px;
+    color: var(--gold); font-weight: 700; margin-bottom: 10px;
+  }
+  header h1 { font-size: clamp(34px, 7vw, 52px); font-weight: 800; letter-spacing: -1px; }
+  header .dates { font-size: clamp(16px, 3.5vw, 20px); color: #ffd9c2; margin-top: 8px; font-weight: 600; }
+  header .crew { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .crew span {
+    background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25);
+    padding: 5px 14px; border-radius: 999px; font-size: 14px; font-weight: 600;
+  }
+  .crew span.leslie { background: rgba(255,179,71,0.25); border-color: var(--gold); }
+
+  /* QUICK FACTS */
+  .facts {
+    margin-top: -46px; position: relative; z-index: 2;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .fact {
+    background: var(--card); border-radius: 14px; padding: 14px 12px;
+    box-shadow: 0 6px 18px rgba(14,27,51,0.10);
+    text-align: center;
+  }
+  .fact .emoji { font-size: 22px; }
+  .fact .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-top: 4px; }
+  .fact .value { font-size: 13.5px; font-weight: 700; margin-top: 2px; }
+  @media (max-width: 540px) {
+    .facts { grid-template-columns: 1fr; }
+    .fact { display: flex; align-items: center; gap: 12px; text-align: left; padding: 12px 16px; }
+    .fact .label { margin-top: 0; }
+    .fact div:last-child { flex: 1; }
+  }
+
+  section { padding: 34px 0 6px; }
+  h2 {
+    font-size: 22px; font-weight: 800; letter-spacing: -0.3px;
+    display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  }
+  h2 .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--sunset); flex: none; }
+
+  /* MUST HAVES */
+  .musts { display: grid; gap: 10px; }
+  .must {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; display: flex; gap: 12px; align-items: baseline;
+  }
+  .must .check { color: var(--sunset); font-weight: 800; flex: none; }
+  .must b { font-weight: 700; }
+  .must .when { color: var(--muted); font-size: 14px; }
+
+  /* DAY CARDS */
+  .day {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    margin-bottom: 18px; overflow: hidden;
+    box-shadow: 0 3px 10px rgba(14,27,51,0.05);
+  }
+  .day-head {
+    padding: 16px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+  }
+  .day-head .datebox {
+    background: var(--navy); color: #fff; border-radius: 10px;
+    padding: 6px 12px; text-align: center; line-height: 1.15; flex: none;
+  }
+  .datebox .dow { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); font-weight: 700; }
+  .datebox .num { font-size: 18px; font-weight: 800; }
+  .day-head h3 { font-size: 17px; font-weight: 800; flex: 1; min-width: 140px; }
+  .tag {
+    font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .tag.salsa { background: var(--pill-bg); color: #c25417; }
+  .tag.temp { background: #e9f3fb; color: #1f6ea8; }
+  .tag.free { background: #e9f7ee; color: #1e7a45; }
+  .day-body { padding: 6px 20px 16px; }
+  .slot { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+  .slot:last-child { border-bottom: none; }
+  .slot .time {
+    flex: none; width: 86px; font-size: 12px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--sunset); padding-top: 3px;
+  }
+  .slot .what { font-size: 15px; }
+  .slot .what b { font-weight: 700; }
+  .slot .sub { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .slot.workshop { background: linear-gradient(90deg, #fff7ee, transparent); border-radius: 8px; }
+  .slot.workshop .time { color: #c25417; }
+  @media (max-width: 480px) {
+    .slot { flex-direction: column; gap: 2px; }
+    .slot .time { width: auto; }
+  }
+
+  /* TRANSPORT + LISTS */
+  .panel {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .panel h4 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+  .panel ul { padding-left: 20px; }
+  .panel li { margin: 6px 0; font-size: 15px; }
+  .panel li b { font-weight: 700; }
+  .note { color: var(--muted); font-size: 13.5px; }
+
+  .eats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .eats { grid-template-columns: 1fr; } }
+  .eat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+  }
+  .eat b { font-weight: 700; font-size: 15px; }
+  .eat .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+  /* HEAT TIPS */
+  .heat {
+    background: linear-gradient(135deg, #fff3e6, #ffe8d6);
+    border: 1px solid #f5d9bd; border-radius: 16px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .heat ul { padding-left: 20px; }
+  .heat li { margin: 6px 0; font-size: 15px; }
+
+  footer {
+    text-align: center; color: var(--muted); font-size: 13px;
+    padding: 26px 20px 40px;
+  }
+  footer .salsa-big { font-size: 26px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Salsa Weekend + City Adventure</div>
+    <h1>New York City 🗽</h1>
+    <div class="dates">Thursday, July 30 → Tuesday, August 4, 2026</div>
+    <div class="crew">
+      <span>Michelle</span><span>Monica</span><span>Kevin</span><span>Isa</span>
+      <span class="leslie">Leslie · Thu night → Sun afternoon</span>
+    </div>
+  </div>
+  <svg class="skyline" viewBox="0 0 800 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#fdf8f2" d="M0,70 L0,52 L28,52 L28,34 L44,34 L44,50 L70,50 L70,22 L84,22 L84,14 L92,14 L92,22 L106,22 L106,48 L134,48 L134,38 L158,38 L158,54 L186,54 L186,26 L204,26 L204,18 L212,10 L220,18 L220,26 L238,26 L238,52 L264,52 L264,40 L288,40 L288,56 L316,56 L316,30 L336,30 L336,44 L362,44 L362,20 L376,20 L376,8 L382,2 L388,8 L388,20 L402,20 L402,46 L430,46 L430,36 L456,36 L456,54 L484,54 L484,28 L502,28 L502,42 L528,42 L528,52 L556,52 L556,24 L572,24 L572,16 L580,16 L580,24 L596,24 L596,48 L624,48 L624,38 L648,38 L648,56 L676,56 L676,32 L696,32 L696,46 L722,46 L722,26 L738,26 L738,50 L766,50 L766,42 L800,42 L800,70 Z"/>
+  </svg>
+</header>
+
+<div class="wrap">
+
+  <div class="facts">
+    <div class="fact"><div class="emoji">🏨</div><div><div class="label">Home base</div><div class="value">NY Marriott Marquis<br>1535 Broadway (Times Sq)</div></div></div>
+    <div class="fact"><div class="emoji">🥵</div><div><div class="label">Weather</div><div class="value">Mid-to-upper 80s °F,<br>humid · pack for heat</div></div></div>
+    <div class="fact"><div class="emoji">💃</div><div><div class="label">Salsa workshops</div><div class="value">Fri – Sun · 11am – 5pm<br>at the hotel</div></div></div>
+  </div>
+
+  <section>
+    <h2><span class="dot"></span>Leslie's must-haves ✓</h2>
+    <div class="musts">
+      <div class="must"><span class="check">✓</span><div><b>Grand Central Terminal</b> <span class="when">· Friday morning, before workshops (and it's air-conditioned)</span></div></div>
+      <div class="must"><span class="check">✓</span><div><b>Central Park</b> <span class="when">· Saturday early morning, coolest part of the day</span></div></div>
+      <div class="must"><span class="check">✓</span><div><b>Brooklyn Bridge</b> <span class="when">· Saturday at sunset, dinner in Dumbo after</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>The plan, day by day</h2>
+
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Thu</div><div class="num">7/30</div></div>
+        <h3>Arrival day</h3>
+        <span class="tag temp">87° / 73°</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">Daytime</div><div class="what"><b>Everyone lands, check in at the Marquis.</b><div class="sub">From JFK: taxi is a flat $70 + tolls/tip, or AirTrain + E train to 42nd St. From LGA: ~$45–60 cab.</div></div></div>
+        <div class="slot"><div class="time">Late night</div><div class="what"><b>Leslie arrives 🎉</b> Cab or Uber straight to the hotel.<div class="sub">Welcome bite if anyone's up: Junior's (45th &amp; Broadway, cheesecake, open late) or Joe's Pizza (Broadway &amp; 40th).</div></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Fri</div><div class="num">7/31</div></div>
+        <h3>Grand Central day</h3>
+        <span class="tag salsa">💃 Salsa 11–5</span>
+        <span class="tag temp">86° / 74°</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">~9:00 am</div><div class="what"><b>Grand Central Terminal.</b> Flat 15-min walk east on 42nd St (or one stop on the 7 / S shuttle).<div class="sub">Main concourse ceiling, whispering gallery, breakfast at Grand Central Market. Fully air-conditioned. Back by 10:45.</div></div></div>
+        <div class="slot workshop"><div class="time">11 – 5</div><div class="what"><b>Salsa workshops at the hotel.</b><div class="sub">Lunch break: Los Tacos No.1 (43rd St, 2-min walk, fast + amazing) or Margon (46th St, classic Cuban lunch counter, on theme).</div></div></div>
+        <div class="slot"><div class="time">Evening</div><div class="what"><b>Dinner on Restaurant Row</b> (46th St btwn 8th &amp; 9th) or 9th Ave in Hell's Kitchen.<div class="sub">Then Times Square at night, when it's actually worth seeing, and it's right outside the hotel.</div></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Sat</div><div class="num">8/1</div></div>
+        <h3>Central Park + Brooklyn Bridge</h3>
+        <span class="tag salsa">💃 Salsa 11–5</span>
+        <span class="tag temp">87° / 74°</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">7:30 am</div><div class="what"><b>Central Park, early.</b> Walk up Broadway to Columbus Circle (15 min).<div class="sub">Greatest-hits loop: the Mall → Bethesda Terrace &amp; Fountain → Bow Bridge (~90 min). Breakfast near Columbus Circle, back by 10:45.</div></div></div>
+        <div class="slot workshop"><div class="time">11 – 5</div><div class="what"><b>Salsa workshops at the hotel.</b></div></div>
+        <div class="slot"><div class="time">~7:15 pm</div><div class="what"><b>Brooklyn Bridge at sunset.</b> Subway downtown, start from the Manhattan side ~7:30.<div class="sub">Walk toward Brooklyn so the skyline is behind you and Dumbo is the reward. Sunset ≈ 8:10 pm.</div></div></div>
+        <div class="slot"><div class="time">Dinner</div><div class="what"><b>Dumbo:</b> Juliana's or Grimaldi's for pizza (expect a wait) or Time Out Market food hall with skyline views.<div class="sub">A/C train from High St runs you back to a block from the hotel.</div></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Sun</div><div class="num">8/2</div></div>
+        <h3>Leslie's send-off</h3>
+        <span class="tag salsa">💃 Salsa 11–5</span>
+        <span class="tag temp">Mid 80s</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">Morning</div><div class="what"><b>Send-off brunch for Leslie</b> in Hell's Kitchen (Westville, 9th Ave) or Sarabeth's at Central Park South.<div class="sub">All three must-haves: done ✓. If her flight allows, she can catch the first workshop hour before heading out.</div></div></div>
+        <div class="slot workshop"><div class="time">11 – 5</div><div class="what"><b>Salsa workshops</b> for the rest of the crew. Safe travels, Leslie! 👋</div></div>
+        <div class="slot"><div class="time">Evening</div><div class="what"><b>Low-key night:</b> The View, the revolving lounge on the hotel's 48th floor, zero effort required.<div class="sub">Or gelato + a wander through Rockefeller Center and Bryant Park after dark.</div></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Mon</div><div class="num">8/3</div></div>
+        <h3>Free day: downtown + culture</h3>
+        <span class="tag free">No workshops!</span>
+        <span class="tag temp">Mid 80s</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">~9:00 am</div><div class="what"><b>The High Line,</b> north end first: 7 train one stop to Hudson Yards, walk south while it's cool.<div class="sub">Ends at Chelsea Market (air-conditioned lunch) with Little Island right there too.</div></div></div>
+        <div class="slot"><div class="time">Afternoon</div><div class="what"><b>Museum time (a.k.a. free A/C):</b> MoMA is a 10-min walk from the hotel; the Met and Natural History are one train up.<div class="sub">Or Summit One Vanderbilt for skyline views from inside a giant mirror box.</div></div></div>
+        <div class="slot"><div class="time">Evening</div><div class="what"><b>Broadway?</b> Many shows are dark Mondays, so check listings, or hit the TKTS booth in Times Square for same-day discounts.<div class="sub">Backup plan: dinner in the West Village + Washington Square Park at dusk.</div></div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Tue</div><div class="num">8/4</div></div>
+        <h3>Departure day</h3>
+        <span class="tag free">Flight-dependent</span>
+        <span class="tag temp">Mid 80s</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">Early flight</div><div class="what"><b>Bagels &amp; go:</b> Best Bagel &amp; Coffee (35th St, worth the 10-min walk), then off to the airport.</div></div>
+        <div class="slot"><div class="time">Later flight</div><div class="what"><b>Staten Island Ferry:</b> free, air-conditioned, Statue of Liberty views, 50 min round trip.<div class="sub">1 train to South Ferry. The hotel holds luggage after checkout, so sightsee unencumbered and swing back for bags.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Getting around</h2>
+    <div class="panel">
+      <h4>🚇 Subway = tap and go</h4>
+      <ul>
+        <li>No MetroCard needed. <b>Tap your phone or contactless credit card</b> at the turnstile (it's called OMNY). $2.90 per ride.</li>
+        <li><b>Free rides after 12 taps in 7 days</b> on the same card, so use the same one all trip.</li>
+        <li>Times Sq–42nd St station is <b>directly under the hotel</b>: 1/2/3, N/Q/R/W, 7, and the S shuttle. A/C/E is one block west at Port Authority.</li>
+        <li class="note">Platforms are brutally hot in summer; the cars are ice cold. Don't let the platform scare you.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>🚶 Walkability from the hotel</h4>
+      <ul>
+        <li><b>Grand Central:</b> 15-min flat walk east on 42nd St.</li>
+        <li><b>Central Park (south edge):</b> 15-min walk up Broadway to Columbus Circle.</li>
+        <li><b>Bryant Park + NY Public Library:</b> 5 minutes.</li>
+        <li><b>Brooklyn Bridge:</b> not walkable, ~25 min by subway.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Eats near the hotel</h2>
+    <div class="eats">
+      <div class="eat"><b>Los Tacos No.1</b><div class="sub">43rd St · 2-min walk · best fast lunch in the area</div></div>
+      <div class="eat"><b>Margon</b><div class="sub">46th St · Cuban lunch counter · very on theme 💃</div></div>
+      <div class="eat"><b>Junior's</b><div class="sub">45th &amp; Broadway · diner + famous cheesecake · open late</div></div>
+      <div class="eat"><b>Joe's Pizza</b><div class="sub">Broadway &amp; 40th · the classic NY slice</div></div>
+      <div class="eat"><b>Restaurant Row</b><div class="sub">46th btwn 8th–9th · a whole block of dinner options</div></div>
+      <div class="eat"><b>9th Ave, Hell's Kitchen</b><div class="sub">10-min walk · every cuisine, better than Times Sq proper</div></div>
+      <div class="eat"><b>Westville Hell's Kitchen</b><div class="sub">9th Ave · brunch favorite</div></div>
+      <div class="eat"><b>The View Lounge</b><div class="sub">48th floor of our hotel · revolving rooftop bar</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Beating the heat 🥵</h2>
+    <div class="heat">
+      <ul>
+        <li><b>Outdoors before 10am or after 6pm.</b> The workshops conveniently cover the hottest hours (11–5) on Fri–Sun.</li>
+        <li><b>Hydrate constantly.</b> Whole Foods (Columbus Circle, Bryant Park) and Duane Reade are everywhere for water and sunscreen.</li>
+        <li><b>Midday A/C escapes:</b> Bryant Park's library, museums, Grand Central, food halls.</li>
+        <li><b>Pop-up storms happen</b> on summer afternoons. A packable umbrella is worth it; replanning around rain is not.</li>
+        <li><b>Dress light</b>, comfortable walking shoes, and bring a layer for arctic-level indoor A/C.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="salsa-big">💃🕺🗽</div>
+    See everyone in New York!
+  </footer>
+
+</div>
+
+</body>
+</html>
