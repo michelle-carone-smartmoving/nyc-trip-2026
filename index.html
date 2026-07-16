@@ -125,6 +125,15 @@
   .slot .sub { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
   .slot.workshop { background: linear-gradient(90deg, #fff7ee, transparent); border-radius: 8px; }
   .slot.workshop .time { color: #c25417; }
+  .tabs { display: flex; gap: 8px; margin: 0 0 18px; }
+  .tabbtn {
+    flex: 1; padding: 11px 12px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--card); font-weight: 800; font-size: 14px; cursor: pointer;
+    color: var(--muted); font-family: inherit;
+  }
+  .tabbtn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .tabbtn.active .tabsub { color: var(--gold); }
+  .tabsub { display: block; font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 2px; }
   .slot.lunch { background: linear-gradient(90deg, #effaf3, transparent); border-radius: 8px; }
   .slot.lunch .time { color: #1e7a45; }
   .classlist { list-style: none; margin-top: 8px; display: grid; gap: 5px; }
@@ -232,6 +241,10 @@
   <section>
     <h2><span class="dot"></span>The plan, day by day</h2>
     <p class="note" style="margin-bottom:14px">Routing logic: every day is one loop, no north-south ping-pong. Class days (Fri–Sun) stay in Midtown, with one southern dip each — Saturday for the bridge, Sunday for Wo Hop. Monday runs as a single straight line down the west side: High Line → Chelsea → SoHo → World Trade Center → dinner nearby → one train home.</p>
+    <div class="tabs">
+      <button class="tabbtn active" id="btnA">Plan A<span class="tabsub">every circled class</span></button>
+      <button class="tabbtn" id="btnB">Plan B<span class="tabsub">lighter class load, more city</span></button>
+    </div>
 
     <div class="day">
       <div class="day-head">
@@ -248,6 +261,7 @@
       </div>
     </div>
 
+    <div class="vA">
     <div class="day">
       <div class="day-head">
         <div class="datebox"><div class="dow">Fri</div><div class="num">7/31</div></div>
@@ -319,6 +333,77 @@
         <div class="slot"><div class="time">11:30 pm</div><div class="what"><b>Social, 11:30pm–7am 🌙</b> — drop in whenever. Theme: NYC Urban Street Style 👟. Real goodbyes to Monica tonight — her flight's 6am, so if she's at the social she's dancing until her cab.<div class="sub">⚠️ Monica: leave the hotel by ~3:30am. Take a cab/Uber — the E train + AirTrain at 3am is slow and sparse, not worth the gamble.</div></div></div>
       </div>
     </div>
+
+    </div><!-- /vA -->
+
+    <div class="vB" style="display:none">
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Fri</div><div class="num">7/31</div></div>
+        <h3>Grand Central + MoMA</h3>
+        <span class="tag salsa">💃 3 classes + rehearsal</span>
+        <span class="tag temp">86° / 74°</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">~8:15 am</div><div class="what"><b>Grand Central Terminal, early</b> — Leslie's + Monica's must-have. 15-min walk east on 42nd St, breakfast inside, back by 9:45.</div></div>
+        <div class="slot workshop"><div class="time">10 – 12:50</div><div class="what"><b>Keeping the morning three 🔴</b>
+          <ul class="classlist">
+            <li><span class="ct">10:00</span>Isolations <span class="ci">· Cristian Vergari</span></li>
+            <li><span class="ct">11:00</span>Tania's Fusion <span class="ci">· Tania Cannarsa</span></li>
+            <li><span class="ct">12:00</span>Lady Styling <span class="ci">· Nathalia Raigosa</span><span class="room">Master Class Rm</span></li>
+          </ul>
+          <div class="sub">Skipping: 1pm Spins EM Technique + 2pm Mambo Fusion.</div></div></div>
+        <div class="slot lunch"><div class="time">1 – 2:30 pm</div><div class="what"><b>Real sit-down lunch 🍽</b> — Her Name is Han (Koreatown) or Boqueria tapas (W 40th), no rush.</div></div>
+        <div class="slot"><div class="time">2:30 – 4:45</div><div class="what"><b>MoMA</b> — 10-min walk, ice-cold A/C through the hottest hours. Back by 4:50.</div></div>
+        <div class="slot workshop"><div class="time">5 – 8 pm</div><div class="what"><b>Tech rehearsal</b> — this one's not skippable.</div></div>
+        <div class="slot"><div class="time">~8:30 pm</div><div class="what"><b>Late dinner, 5-min radius:</b> Boqueria, Mitr Thai (reserve), or Restaurant Row / 9th Ave. Adel's halal cart till 4–5am if hunger strikes later.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Sat</div><div class="num">8/1</div></div>
+        <h3>Slow Central Park + bridge night</h3>
+        <span class="tag salsa">💃 2 classes + jam</span>
+        <span class="tag temp">87° / 74°</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">8 – 11:30</div><div class="what"><b>Central Park without the clock</b> — the full greatest-hits loop, then a proper brunch near Columbus Circle.<div class="sub">Optional pilgrimage: Levain Bakery's original shop (W 74th, 10 min up from the park's west side) for the chocolate chip cookie. Skipping the 11am + 12pm classes buys all this.</div></div></div>
+        <div class="slot workshop"><div class="time">2 – 3:50</div><div class="what"><b>Keeping the afternoon two 🔴</b>
+          <ul class="classlist">
+            <li><span class="ct">2:00</span>Spins Iroko Technique <span class="ci">· Ernesto &amp; Denisse</span></li>
+            <li><span class="ct">3:00</span>Int-Adv Footwork <span class="ci">· Diego &amp; Yaritza</span></li>
+          </ul>
+          <div class="sub">4–5pm free to rest before the jam.</div></div></div>
+        <div class="slot workshop"><div class="time">5:00</div><div class="what"><b>Jam Session</b> — Adolfo, Diego, Brandon &amp; Benny.</div></div>
+        <div class="slot"><div class="time">~6:30 pm</div><div class="what"><b>Brooklyn Bridge at sunset → Dumbo dinner</b> (Juliana's, Time Out Market). Same as Plan A — home by ~10:30.</div></div>
+        <div class="slot"><div class="time">11:30 pm</div><div class="what"><b>Social, till 7am 🌙</b> — drop in whenever. Theme: Black Tie Mafia Royale 🎩.</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <div class="datebox"><div class="dow">Sun</div><div class="num">8/2</div></div>
+        <h3>Leslie's send-off + slow afternoon</h3>
+        <span class="tag salsa">💃 2 classes + closing jam</span>
+        <span class="tag temp">Mid 80s</span>
+      </div>
+      <div class="day-body">
+        <div class="slot"><div class="time">~8:15 am</div><div class="what"><b>Early send-off breakfast for Leslie</b> in Hell's Kitchen — all her must-haves are done ✓. Safe travels! 👋</div></div>
+        <div class="slot workshop"><div class="time">10 – 11:50</div><div class="what"><b>Keeping the morning two 🔴</b>
+          <ul class="classlist">
+            <li><span class="ct">10:00</span>Afro <span class="ci">· Ivan Valdespino</span></li>
+            <li><span class="ct">11:00</span>Partnerwork <span class="ci">· Johan &amp; Alyssa</span><span class="room">Master Class Rm</span></li>
+          </ul>
+          <div class="sub">Skipping: 1pm Body Movement + 3pm Footwork with Cuban Influence.</div></div></div>
+        <div class="slot lunch"><div class="time">12 – 1 pm</div><div class="what"><b>Lunch 🍽</b> — Los Tacos No.1, Margon, or Urban Hawker, no rush today.</div></div>
+        <div class="slot"><div class="time">1 – 4:45</div><div class="what"><b>Slow afternoon:</b> Summit One Vanderbilt (the mirror observation deck at Grand Central) or pure rest + a midtown dessert crawl (HEYTEA, I'm Donut?, Bibble &amp; Sip).</div></div>
+        <div class="slot workshop"><div class="time">5:00</div><div class="what"><b>Closing Jam Session</b> — TG &amp; EM. End the weekend on the floor.</div></div>
+        <div class="slot"><div class="time">~6:30 pm</div><div class="what"><b>Crew dinner at Wo Hop 🥡</b> — same as Plan A: N/Q/R/W to Canal St, scallion lobster, Mei Lai Wah buns for the walk back.</div></div>
+        <div class="slot"><div class="time">11:30 pm</div><div class="what"><b>Social, till 7am 🌙</b> — Urban Street Style 👟. Goodbyes to Monica: ⚠️ out the door by 3:30am, cab/Uber only.</div></div>
+      </div>
+    </div>
+    </div><!-- /vB -->
 
     <div class="day">
       <div class="day-head">
@@ -474,6 +559,20 @@
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var bA = document.getElementById('btnA'), bB = document.getElementById('btnB');
+  function show(plan) {
+    document.querySelectorAll('.vA').forEach(function (e) { e.style.display = plan === 'A' ? '' : 'none'; });
+    document.querySelectorAll('.vB').forEach(function (e) { e.style.display = plan === 'B' ? '' : 'none'; });
+    bA.classList.toggle('active', plan === 'A');
+    bB.classList.toggle('active', plan === 'B');
+  }
+  bA.addEventListener('click', function () { show('A'); });
+  bB.addEventListener('click', function () { show('B'); });
+})();
+</script>
 
 </body>
 </html>
